@@ -1,0 +1,12 @@
+# data and large files
+data/
+*.tif
+*.parquet
+*.zip
+*.log
+nohup.out
+spark-tmp/
+__pycache__/
+.ipynb_checkpoints/
+.env
+*.pem
