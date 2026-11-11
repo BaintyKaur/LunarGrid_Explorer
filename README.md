@@ -4,7 +4,7 @@ Where are lunar craters crowded, where are they sparse, and do independent crate
 This project answers those questions for more than 10 million craters, using Apache Spark and Apache Sedona
 for the spatial work, and a small interactive dashboard to explore the results.
 
-**Live dashboard:** https://YOUR-USERNAME.github.io/lunargrid-explorer/  (replace YOUR-USERNAME after publishing)
+**Live dashboard:** https://baintykaur.github.io/LunarGrid_Explorer/
 
 ## What the project does
 
