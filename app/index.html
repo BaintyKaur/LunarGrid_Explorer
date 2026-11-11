@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>LunarGrid Explorer 3D</title>
+  <meta name="description" content="Spin the Moon, click a place, and see crater density, hotspot tests, terrain and sunlight.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>LunarGrid Explorer</h1>
+    <p>Spin the Moon and click anywhere to see what the three crater catalogues, the terrain and the sunlight say about that place.</p>
+  </header>
+
+  <section class="controls" aria-label="Globe controls">
+    <div class="ctl"><label for="layerSel">Colour the Moon by</label><select id="layerSel"></select></div>
+    <div class="ctl"><label for="catSel">Catalogue</label><select id="catSel"></select></div>
+    <div class="ctl"><label for="thrSel">Crater size</label><select id="thrSel">
+      <option value="1">1 km and larger</option><option value="2">2 km and larger</option></select></div>
+    <div class="layernote" id="layerNote"></div>
+  </section>
+
+  <div class="main">
+    <section class="card globecard">
+      <div id="globe" aria-label="3D globe of the Moon. Drag to rotate, scroll to zoom, click to choose a place.">
+        <div class="gtools">
+          <button type="button" id="btnNear">Near side</button>
+          <button type="button" id="btnFar">Far side</button>
+          <button type="button" id="btnN">North pole</button>
+          <button type="button" id="btnS">South pole</button>
+          <label><input type="checkbox" id="chkSpin"> Auto-rotate</label>
+          <label><input type="checkbox" id="chkGrid" checked> Grid lines</label>
+          <label><input type="checkbox" id="chkPolar" checked> 20 km polar cells</label>
+        </div>
+        <div class="tip" id="tip"></div>
+      </div>
+      <div class="gfoot">
+        <div class="readout" id="readout">Drag to rotate, scroll to zoom, click to select.</div>
+        <div class="legend" id="legend"></div>
+        <div class="hint" id="mapHint">Poleward of 65° the Moon is shown in 20 km equal-area cells, elsewhere in 5° tiles.</div>
+      </div>
+    </section>
+    <aside class="card panel" id="panel" aria-live="polite"><div class="status">Loading the crater data…</div></aside>
+  </div>
+
+  <details>
+    <summary>About these numbers</summary>
+    <p>Density is the number of craters per 1,000 km² of true surface area. The Moon is split into 5° tiles for most of the surface and into 20 km equal-area cells poleward of 65°. Gi* compares a place and its neighbours within 61 km with the rest of the map; a Z-score above 2.58 is significant at the 1% level when cells are treated as independent. Neighbouring cells are not independent, so the permutation test, which shuffles densities within each latitude ring (and, in the second version, within each ring and sunlight class), is the stricter judge. Slope was only computed up to 80° latitude. Elevation comes from a 118 m elevation model. Sunlight, shadow and the permutation test exist only for the polar cells.</p>
+  </details>
+</div>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
